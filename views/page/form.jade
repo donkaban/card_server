@@ -1,0 +1,128 @@
+// @author Alexander Marenin
+// @date July 2014
+
+extends ../layout
+
+block scripts
+    script(src='/public/js/formPage.js')
+
+block content
+    form(role='form', method='POST', action=postUrl, enctype='multipart/form-data')
+        .row
+            .col-md-6
+                h3 XML
+                .form-group#input-big-xml
+                    textarea#big-xml.form-control(rows=25, name='xml').
+                            <card>
+                                <info name="TestCard" version="1.0"/>
+                                <front>
+                                    <material name="card::metalic" blending="true"/>
+                                    <textures texture0="def::green"/>
+                                   
+                                    <embosedText 
+                                            text="1234 1234 1234 1234" 
+                                            font="type1" 
+                                            alignment="center" 
+                                            scale="1.0">
+                                        <material name="card::chrome"/>
+                                        <position x="0.09" y="0.6"/>
+                                        <textures texture0="def::red"/> 
+                                    </embosedText>
+                                    
+                                    <printedText 
+                                            text="1234" 
+                                            alignment="center" 
+                                            size="1.5" 
+                                            order="5">
+                                        <material name="def::simple_text" blending="true"/>
+                                        <position x="0.1" y="0.71"/>
+                                        <color r="255" g="0" b="0" a="255"/>
+                                        <font file="fonts/sans.ttf" bold="5" charset="numbers" dpi="128"/>
+                                    </printedText>
+                                    
+                                    <embosedText 
+                                            text="12/15" 
+                                            font="type1" 
+                                            alignment="center" 
+                                            scale="0.6">
+                                        <material name="card::chrome"/>
+                                        <position x="0.45" y="0.77"/>
+                                        <textures texture0="card::silver"/>
+                                    </embosedText>
+                                    
+                                    <embosedText 
+                                            text="VLADIMIR PUTIN" 
+                                            font="type1" 
+                                            alignment="center" 
+                                            scale="0.6">
+                                        <material name="card::chrome"/>
+                                        <position x="0.07" y="0.84"/>
+                                        <textures texture0="card::silver"/>
+                                    </embosedText>
+                                    
+                                    <embosedText 
+                                            text="533" 
+                                            font="type1" 
+                                            alignment="center" 
+                                            scale="0.6">
+                                        <material name="card::chrome"/>
+                                        <position x="0.07" y="0.91"/>
+                                        <textures texture0="card::silver"/>
+                                    </embosedText>
+                                    
+                                    <plain name="Chip"  order="0">
+                                        <material name="card::chip" blending="true"/>
+                                        <position x="0.1" y="0.34" z="0.165" w="0.26"/>
+                                    </plain>
+                                </front>
+                                
+                                <back>
+                                    <material name="card::metalic" blending="true"/>
+                                    <textures texture0="def::blue"/>
+
+                                    <plain name="hologram" order="0">
+                                        <material name="card::holo" blending="true"/>
+                                        <position x="-0.02" y="0.26" z="0.275" w="0.43"/>
+                                    </plain>
+                                </back>
+                            </card>   
+
+                        
+
+            .col-md-6
+                h3 Config
+                .checkbox
+                    label
+                        input(type='checkbox', name='front')
+                        | Front
+                .checkbox
+                    label
+                        input(type='checkbox', name='back')
+                        | Back
+                .form-group
+                    label(for='rotate-x') Rotate X
+                    input#rotate-x.form-control(type='number', name='rotateX', value=0)
+                .form-group
+                    label(for='rotate-y') Rotate Y
+                    input#rotate-y.form-control(type='number', name='rotateY', value=0)
+                .form-group
+                    label(for='rotate-z') Rotate Z
+                    input#rotate-z.form-control(type='number', name='rotateZ', value=0)
+
+                h3 Files
+                .form-group
+                    input(type='file', name='f1')
+                .form-group
+                    input(type='file', name='f2')
+                .form-group
+                    input(type='file', name='f3')
+                .form-group
+                    input(type='file', name='f4')
+                .form-group
+                    input(type='file', name='f5')
+
+        .row
+            .col-md-12.center.offset-top
+                button.btn.btn-success(type='submit') Submit
+
+
